@@ -23,3 +23,8 @@ RUN comfy model download \
   --url "https://drive.google.com/uc?export=download&id=1PdmUD6_ng7DKuhFG--ZSIBtOq4i6OVbL&confirm=t" \
   --relative-path models/loras \
   --filename realistic-nudes-flux.safetensors
+
+RUN comfy model download \
+  --url "https://drive.google.com/uc?export=download&id=1guho2n-0joKjQd0Tips34ztdSkVhemJT&confirm=t" \
+  --relative-path models/loras \
+  --filename flux-unchained.safetensors
