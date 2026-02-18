@@ -18,10 +18,10 @@ RUN comfy model download \
   --relative-path models/vae \
   --filename ae.safetensors
 
-# Download Flux NSFW LoRAs (compatible with Chroma)
-# Google Drive large file download with confirmation bypass
+# Download Flux NSFW LoRAs from CivitAI (compatible with Chroma)
 RUN mkdir -p /comfyui/models/loras && \
-  pip install --quiet gdown && \
-  python3 -c "import gdown; gdown.download(id='1PdmUD6_ng7DKuhFG--ZSIBtOq4i6OVbL', output='/comfyui/models/loras/realistic-nudes-flux.safetensors', fuzzy=True)" && \
-  python3 -c "import gdown; gdown.download(id='1guho2n-0joKjQd0Tips34ztdSkVhemJT', output='/comfyui/models/loras/flux-unchained.safetensors', fuzzy=True)" && \
+  curl -L -o /comfyui/models/loras/realistic-nudes-flux.safetensors \
+    "https://civitai.com/api/download/models/883450?token=59b276f4628a091235f594aee42bda27" && \
+  curl -L -o /comfyui/models/loras/flux-unchained.safetensors \
+    "https://civitai.com/api/download/models/768637?token=59b276f4628a091235f594aee42bda27" && \
   ls -lh /comfyui/models/loras/
