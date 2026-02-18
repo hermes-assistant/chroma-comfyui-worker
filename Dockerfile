@@ -19,7 +19,9 @@ RUN comfy model download \
   --filename ae.safetensors
 
 # Download Flux NSFW LoRAs (compatible with Chroma)
-# Using gdown for Google Drive large file support
-RUN pip install gdown && \
-  gdown "1PdmUD6_ng7DKuhFG--ZSIBtOq4i6OVbL" -O /comfyui/models/loras/realistic-nudes-flux.safetensors && \
-  gdown "1guho2n-0joKjQd0Tips34ztdSkVhemJT" -O /comfyui/models/loras/flux-unchained.safetensors
+# Google Drive large file download with confirmation bypass
+RUN mkdir -p /comfyui/models/loras && \
+  pip install --quiet gdown && \
+  python3 -c "import gdown; gdown.download(id='1PdmUD6_ng7DKuhFG--ZSIBtOq4i6OVbL', output='/comfyui/models/loras/realistic-nudes-flux.safetensors', fuzzy=True)" && \
+  python3 -c "import gdown; gdown.download(id='1guho2n-0joKjQd0Tips34ztdSkVhemJT', output='/comfyui/models/loras/flux-unchained.safetensors', fuzzy=True)" && \
+  ls -lh /comfyui/models/loras/
