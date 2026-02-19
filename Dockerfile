@@ -24,4 +24,6 @@ RUN mkdir -p /comfyui/models/loras && \
     "https://civitai.com/api/download/models/883450?token=59b276f4628a091235f594aee42bda27" && \
   curl -L -o /comfyui/models/loras/flux-unchained.safetensors \
     "https://civitai.com/api/download/models/768637?token=59b276f4628a091235f594aee42bda27" && \
+  curl -L -o /comfyui/models/loras/sabrina-face-v1.safetensors \
+    "https://github.com/hermes-assistant/chroma-comfyui-worker/releases/download/v1.0.0/sabrina-chroma-lora-000005.safetensors" && \
   ls -lh /comfyui/models/loras/
