@@ -1,10 +1,10 @@
 FROM runpod/worker-comfyui:5.7.1-base
 
-# Download Chroma1-HD FP8 model
+# Download GonzaLomo Chroma v3.0 (Chroma finetune with built-in realism + NSFW)
 RUN comfy model download \
-  --url "https://huggingface.co/Clybius/Chroma-fp8-scaled/resolve/main/Chroma1-HD/Chroma1-HD_float8_e4m3fn_scaled_learned_topk8_svd.safetensors" \
+  --url "https://civitai.com/api/download/models/2627397?token=59b276f4628a091235f594aee42bda27" \
   --relative-path models/diffusion_models \
-  --filename Chroma1-HD-fp8_scaled_rev2.safetensors
+  --filename gonzalomoChroma_v30.safetensors
 
 # Download T5 XXL FP8 text encoder (required for Chroma)
 RUN comfy model download \
@@ -18,12 +18,8 @@ RUN comfy model download \
   --relative-path models/vae \
   --filename ae.safetensors
 
-# Download Flux NSFW LoRAs from CivitAI (compatible with Chroma)
-RUN mkdir -p /comfyui/models/loras && \
-  curl -L -o /comfyui/models/loras/realistic-nudes-flux.safetensors \
-    "https://civitai.com/api/download/models/883450?token=59b276f4628a091235f594aee42bda27" && \
-  curl -L -o /comfyui/models/loras/flux-unchained.safetensors \
-    "https://civitai.com/api/download/models/768637?token=59b276f4628a091235f594aee42bda27" && \
-  curl -L -o /comfyui/models/loras/sabrina-face-v1.safetensors \
-    "https://github.com/hermes-assistant/chroma-comfyui-worker/releases/download/v1.0.0/sabrina-chroma-lora-000005.safetensors" && \
-  ls -lh /comfyui/models/loras/
+# Download Sabrina face LoRA (use comfy model download since curl may not be available)
+RUN comfy model download \
+  --url "https://github.com/hermes-assistant/chroma-comfyui-worker/releases/download/v1.0.0/sabrina-chroma-lora-000005.safetensors" \
+  --relative-path models/loras \
+  --filename sabrina-face-v1.safetensors
