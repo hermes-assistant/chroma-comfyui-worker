@@ -15,6 +15,9 @@ RUN comfy model download \
   --relative-path models/vae \
   --filename ae.safetensors
 
+# Download GonzaLomo v6.0 Photo XL DMD (SDXL refiner checkpoint, ~6.6GB)
+RUN python3 -c "import urllib.request; urllib.request.urlretrieve('https://civitai.com/api/download/models/2368123?token=59b276f4628a091235f594aee42bda27', '/comfyui/models/checkpoints/gonzalomoXLFluxPony_v60PhotoXLDMD.safetensors'); print('Done')"
+
 # Download Sabrina face LoRA (use comfy model download since curl may not be available)
 RUN comfy model download \
   --url "https://github.com/hermes-assistant/chroma-comfyui-worker/releases/download/v1.0.0/sabrina-chroma-lora-000005.safetensors" \
