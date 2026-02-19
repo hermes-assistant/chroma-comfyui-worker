@@ -1,8 +1,9 @@
 FROM runpod/worker-comfyui:5.7.1-base
 
 # Download GonzaLomo Chroma v3.0 (Chroma finetune with built-in realism + NSFW)
+ENV CIVITAI_API_TOKEN=59b276f4628a091235f594aee42bda27
 RUN comfy model download \
-  --url "https://civitai.com/api/download/models/2627397?token=59b276f4628a091235f594aee42bda27" \
+  --url "https://civitai.com/api/download/models/2627397" \
   --relative-path models/diffusion_models \
   --filename gonzalomoChroma_v30.safetensors
 
