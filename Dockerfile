@@ -37,3 +37,13 @@ RUN comfy model download \
   --url "https://github.com/hermes-assistant/chroma-comfyui-worker/releases/download/v1.0.0/bella-chroma-lora.safetensors" \
   --relative-path models/loras \
   --filename bella-face-v1.safetensors
+
+RUN comfy model download \
+  --url "https://github.com/hermes-assistant/chroma-comfyui-worker/releases/download/v1.2.0/anna-face-v1.safetensors" \
+  --relative-path models/loras \
+  --filename anna-face-v1.safetensors
+
+RUN comfy model download \
+  --url "https://github.com/hermes-assistant/chroma-comfyui-worker/releases/download/v1.2.0/olivia-face-v1.safetensors" \
+  --relative-path models/loras \
+  --filename olivia-face-v1.safetensors
