@@ -1,7 +1,7 @@
 FROM runpod/worker-comfyui:5.7.1-base
 
 # Set CivitAI token for authenticated downloads
-ENV CIVITAI_API_TOKEN=59b276f4628a091235f594aee42bda27
+ENV CIVITAI_API_TOKEN=b3bb944548243d1003efc4e74c840c70
 
 # Download GonzaLomo Chroma v3.0 (Chroma finetune with built-in realism + NSFW)
 RUN comfy model download \
