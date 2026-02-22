@@ -47,3 +47,9 @@ RUN comfy model download \
   --url "https://github.com/hermes-assistant/chroma-comfyui-worker/releases/download/v1.2.0/olivia-face-v1.safetensors" \
   --relative-path models/loras \
   --filename olivia-face-v1.safetensors
+
+# Download Deepthroat LoRA (Chroma, by SeaEng - works POV and sideview)
+RUN comfy model download \
+  --url "https://civitai.com/api/download/models/2326477" \
+  --relative-path models/loras \
+  --filename deepthroat-chroma-v1.safetensors
